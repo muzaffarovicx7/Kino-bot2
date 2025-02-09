@@ -43,6 +43,14 @@ async def Obunachilar1(message: Message, state: FSMContext):
         
 
 
+@kino_router.message(Command("add"))
+async def AddKino2(mess: Message, state: FSMContext):
+    await mess.answer("Qo'shiladigan kino nomini yuboring ...")
+    await state.set_state(KinoState.names)
+
+
+
+
 
 @kino_router.callback_query(F.data == "qidirkod")
 async def Qidirish(call: CallbackQuery, state: FSMContext):
