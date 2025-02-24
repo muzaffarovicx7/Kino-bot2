@@ -22,12 +22,10 @@ kino_router = Router()
 async def StartBot(message: Message):
     name = message.from_user.full_name
     id = message.from_user.id
-    if id not in Obunachilar():
-        ObunachilarAdd(name=name, id=id)
-        rasm = FSInputFile("Jpg/photo_2025-01-16_19-51-37.jpg")
-        await message.answer_photo(photo=rasm, caption=f"Assalomu aleykum {name}\n🎬 Kino botga xush kelibsiz!", reply_markup=sorov)
-    else:
-        await message.answer(f"Assalomu aleykum {name}\n🎬 Kino botga xush kelibsiz!", reply_markup=sorov)
+    
+    ObunachilarAdd(name=name, id=id)
+    rasm = FSInputFile("Jpg/photo_2025-01-16_19-51-37.jpg")
+    await message.answer_photo(photo=rasm, caption=f"Assalomu aleykum {name}\n🎬 Kino botga xush kelibsiz!", reply_markup=sorov)
 
 
 @kino_router.message(Command('obuna'))
